@@ -23,6 +23,7 @@ phonenumbers = "9.0.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "8.3.5"
+pytest-asyncio = "0.26.0"
 loguru = "0.7.3"
 
 

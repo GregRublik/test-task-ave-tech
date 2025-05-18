@@ -1,9 +1,6 @@
-from fastapi import HTTPException
-
-
-class KeyAlreadyExists(HTTPException):
+class KeyAlreadyExists(BaseException):
     status_code = 409
 
 
-class KeyNotFound(HTTPException):
+class KeyNotFound(BaseException):
     status_code = 404

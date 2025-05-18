@@ -882,3 +882,1158 @@ TypeError: HTTPException.__init__() missing 1 required positional argument: 'sta
 2025-05-18 17:41:40,221 - uvicorn.error - INFO - Waiting for application shutdown.
 2025-05-18 17:41:40,221 - uvicorn.error - INFO - Application shutdown complete.
 2025-05-18 17:41:40,221 - uvicorn.error - INFO - Finished server process [10792]
+2025-05-18 17:58:05,573 - uvicorn.error - INFO - Started server process [19696]
+2025-05-18 17:58:05,574 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 17:58:05,574 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 17:58:05,574 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:26:03,164 - uvicorn.access - INFO - 127.0.0.1:56085 - "GET /docs HTTP/1.1" 200
+2025-05-18 22:26:03,667 - uvicorn.access - INFO - 127.0.0.1:56085 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 22:26:16,378 - uvicorn.access - INFO - 127.0.0.1:56086 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-18 22:26:16,379 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 201, in serialize_response
+    return jsonable_encoder(response_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-05-18 22:26:26,491 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:26:26,599 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:26:26,599 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:26:26,599 - uvicorn.error - INFO - Finished server process [19696]
+2025-05-18 22:26:28,109 - uvicorn.error - INFO - Started server process [24868]
+2025-05-18 22:26:28,109 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:26:28,110 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:26:28,110 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:26:29,723 - uvicorn.access - INFO - 127.0.0.1:56105 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-18 22:26:29,724 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 201, in serialize_response
+    return jsonable_encoder(response_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-05-18 22:26:44,665 - uvicorn.access - INFO - 127.0.0.1:56111 - "GET /docs HTTP/1.1" 200
+2025-05-18 22:26:45,195 - uvicorn.access - INFO - 127.0.0.1:56111 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 22:26:49,169 - uvicorn.access - INFO - 127.0.0.1:56111 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-18 22:26:49,169 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 201, in serialize_response
+    return jsonable_encoder(response_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-05-18 22:27:02,641 - uvicorn.access - INFO - 127.0.0.1:56112 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-18 22:27:02,642 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 201, in serialize_response
+    return jsonable_encoder(response_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-05-18 22:27:44,890 - uvicorn.access - INFO - 127.0.0.1:56341 - "POST /write_data HTTP/1.1" 409
+2025-05-18 22:27:49,329 - uvicorn.access - INFO - 127.0.0.1:56341 - "POST /write_data HTTP/1.1" 409
+2025-05-18 22:27:58,249 - uvicorn.access - INFO - 127.0.0.1:56349 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:29:07,730 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:29:07,838 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:29:07,838 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:29:07,838 - uvicorn.error - INFO - Finished server process [24868]
+2025-05-18 22:29:31,675 - uvicorn.error - INFO - Started server process [20728]
+2025-05-18 22:29:31,675 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:29:31,676 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:29:31,676 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:29:38,635 - uvicorn.access - INFO - 127.0.0.1:56396 - "GET /docs HTTP/1.1" 200
+2025-05-18 22:29:39,075 - uvicorn.access - INFO - 127.0.0.1:56396 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 22:29:42,853 - uvicorn.access - INFO - 127.0.0.1:56396 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-18 22:29:42,853 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 201, in serialize_response
+    return jsonable_encoder(response_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-05-18 22:32:03,826 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:32:03,935 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:32:03,935 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:32:03,935 - uvicorn.error - INFO - Finished server process [20728]
+2025-05-18 22:32:06,247 - uvicorn.error - INFO - Started server process [23024]
+2025-05-18 22:32:06,247 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:32:06,248 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:32:06,248 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:32:18,674 - uvicorn.access - INFO - 127.0.0.1:56541 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-18 22:32:18,675 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 201, in serialize_response
+    return jsonable_encoder(response_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'coroutine' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-05-18 22:32:38,621 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:32:38,728 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:32:38,728 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:32:38,728 - uvicorn.error - INFO - Finished server process [23024]
+2025-05-18 22:32:41,312 - uvicorn.error - INFO - Started server process [20276]
+2025-05-18 22:32:41,312 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:32:41,312 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:32:41,312 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:32:42,933 - uvicorn.access - INFO - 127.0.0.1:56551 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:33:17,346 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:33:17,459 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:33:17,459 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:33:17,459 - uvicorn.error - INFO - Finished server process [20276]
+2025-05-18 22:33:19,018 - uvicorn.error - INFO - Started server process [20452]
+2025-05-18 22:33:19,018 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:33:19,018 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:33:19,019 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:33:21,456 - uvicorn.access - INFO - 127.0.0.1:56576 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:35:45,017 - uvicorn.access - INFO - 127.0.0.1:56664 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:35:58,626 - uvicorn.access - INFO - 127.0.0.1:56672 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:36:13,207 - uvicorn.access - INFO - 127.0.0.1:56677 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:37:10,722 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:37:10,832 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:37:10,832 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:37:10,833 - uvicorn.error - INFO - Finished server process [20452]
+2025-05-18 22:37:12,295 - uvicorn.error - INFO - Started server process [19716]
+2025-05-18 22:37:12,295 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:37:12,295 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:37:12,295 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:37:14,128 - uvicorn.access - INFO - 127.0.0.1:56704 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:38:17,511 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:38:17,619 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:38:17,619 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:38:17,619 - uvicorn.error - INFO - Finished server process [19716]
+2025-05-18 22:38:19,068 - uvicorn.error - INFO - Started server process [4932]
+2025-05-18 22:38:19,069 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:38:19,069 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:38:19,069 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:38:21,992 - uvicorn.access - INFO - 127.0.0.1:56739 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:39:04,395 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:39:04,502 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:39:04,502 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:39:04,502 - uvicorn.error - INFO - Finished server process [4932]
+2025-05-18 22:39:06,072 - uvicorn.error - INFO - Started server process [20404]
+2025-05-18 22:39:06,072 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:39:06,073 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:39:06,073 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:39:08,017 - uvicorn.access - INFO - 127.0.0.1:56765 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:39:13,709 - uvicorn.access - INFO - 127.0.0.1:56772 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:39:27,822 - uvicorn.access - INFO - 127.0.0.1:56790 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:39:30,315 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:39:30,423 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:39:30,423 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:39:30,424 - uvicorn.error - INFO - Finished server process [20404]
+2025-05-18 22:39:31,868 - uvicorn.error - INFO - Started server process [5676]
+2025-05-18 22:39:31,868 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:39:31,868 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:39:31,869 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:39:32,901 - uvicorn.access - INFO - 127.0.0.1:56796 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:39:46,759 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:39:46,868 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:39:46,868 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:39:46,868 - uvicorn.error - INFO - Finished server process [5676]
+2025-05-18 22:39:48,174 - uvicorn.error - INFO - Started server process [15368]
+2025-05-18 22:39:48,174 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:39:48,174 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:39:48,175 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:39:49,552 - uvicorn.access - INFO - 127.0.0.1:56810 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:39:53,301 - uvicorn.access - INFO - 127.0.0.1:56810 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:40:38,611 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:40:38,718 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:40:38,718 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:40:38,718 - uvicorn.error - INFO - Finished server process [15368]
+2025-05-18 22:40:40,105 - uvicorn.error - INFO - Started server process [15336]
+2025-05-18 22:40:40,105 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:40:40,105 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:40:40,105 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:40:41,065 - uvicorn.access - INFO - 127.0.0.1:56826 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:40:44,822 - uvicorn.access - INFO - 127.0.0.1:56826 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:40:48,986 - uvicorn.access - INFO - 127.0.0.1:56826 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:40:51,469 - uvicorn.access - INFO - 127.0.0.1:56826 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:42:27,757 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:42:27,862 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:42:27,862 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:42:27,862 - uvicorn.error - INFO - Finished server process [15336]
+2025-05-18 22:42:29,237 - uvicorn.error - INFO - Started server process [21264]
+2025-05-18 22:42:29,237 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:42:29,238 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:42:29,238 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:42:30,492 - uvicorn.access - INFO - 127.0.0.1:56906 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:42:47,476 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:42:47,578 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:42:47,578 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:42:47,578 - uvicorn.error - INFO - Finished server process [21264]
+2025-05-18 22:42:49,040 - uvicorn.error - INFO - Started server process [17376]
+2025-05-18 22:42:49,041 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:42:49,041 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:42:49,041 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:42:50,411 - uvicorn.access - INFO - 127.0.0.1:56919 - "PUT /update_data HTTP/1.1" 500
+2025-05-18 22:42:50,412 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 47, in update_data
+    print(data_phone.phone.supported_regions)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'supported_regions'
+2025-05-18 22:42:59,813 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:42:59,917 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:42:59,917 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:42:59,918 - uvicorn.error - INFO - Finished server process [17376]
+2025-05-18 22:43:01,260 - uvicorn.error - INFO - Started server process [7252]
+2025-05-18 22:43:01,260 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:43:01,260 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:43:01,260 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:43:02,600 - uvicorn.access - INFO - 127.0.0.1:56934 - "PUT /update_data HTTP/1.1" 500
+2025-05-18 22:43:02,601 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 47, in update_data
+    print(data_phone.phone.phone_format)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'phone_format'
+2025-05-18 22:43:15,094 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:43:15,208 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:43:15,208 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:43:15,208 - uvicorn.error - INFO - Finished server process [7252]
+2025-05-18 22:43:16,723 - uvicorn.error - INFO - Started server process [18360]
+2025-05-18 22:43:16,723 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:43:16,724 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:43:16,724 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:43:17,943 - uvicorn.access - INFO - 127.0.0.1:56947 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:43:38,577 - uvicorn.access - INFO - 127.0.0.1:56964 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:46:05,551 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:46:05,660 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:46:05,660 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:46:05,661 - uvicorn.error - INFO - Finished server process [18360]
+2025-05-18 22:46:07,111 - uvicorn.error - INFO - Started server process [23968]
+2025-05-18 22:46:07,111 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:46:07,111 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:46:07,112 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:46:10,951 - uvicorn.access - INFO - 127.0.0.1:57050 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:46:47,419 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:46:47,528 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:46:47,528 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:46:47,528 - uvicorn.error - INFO - Finished server process [23968]
+2025-05-18 22:46:48,883 - uvicorn.error - INFO - Started server process [9084]
+2025-05-18 22:46:48,883 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:46:48,883 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:46:48,884 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:46:49,721 - uvicorn.access - INFO - 127.0.0.1:57102 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:50:48,032 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:50:48,141 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:50:48,141 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:50:48,141 - uvicorn.error - INFO - Finished server process [9084]
+2025-05-18 22:50:49,577 - uvicorn.error - INFO - Started server process [7152]
+2025-05-18 22:50:49,578 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:50:49,578 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:50:49,578 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:50:53,138 - uvicorn.access - INFO - 127.0.0.1:57293 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:50:54,293 - uvicorn.access - INFO - 127.0.0.1:57293 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:50:58,472 - uvicorn.access - INFO - 127.0.0.1:57293 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:51:25,467 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 33, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:51:25,470 - uvicorn.access - INFO - 127.0.0.1:57331 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:51:44,668 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:51:44,777 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:51:44,777 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:51:44,777 - uvicorn.error - INFO - Finished server process [7152]
+2025-05-18 22:51:46,123 - uvicorn.error - INFO - Started server process [25132]
+2025-05-18 22:51:46,123 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:51:46,123 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:51:46,123 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:51:48,934 - uvicorn.access - INFO - 127.0.0.1:57346 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:51:50,837 - uvicorn.access - INFO - 127.0.0.1:57346 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:51:54,476 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:51:54,584 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:51:54,584 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:51:54,584 - uvicorn.error - INFO - Finished server process [25132]
+2025-05-18 22:51:55,937 - uvicorn.error - INFO - Started server process [8476]
+2025-05-18 22:51:55,937 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:51:55,937 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:51:55,938 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:51:56,964 - uvicorn.access - INFO - 127.0.0.1:57353 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:52:18,793 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 33, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:52:18,797 - uvicorn.access - INFO - 127.0.0.1:57365 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:54:19,786 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:54:19,895 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:54:19,895 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:54:19,895 - uvicorn.error - INFO - Finished server process [8476]
+2025-05-18 22:54:21,371 - uvicorn.error - INFO - Started server process [17388]
+2025-05-18 22:54:21,371 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:54:21,371 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:54:21,372 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:54:23,168 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 33, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(phone=data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:54:23,172 - uvicorn.access - INFO - 127.0.0.1:57421 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:54:27,025 - uvicorn.access - INFO - 127.0.0.1:57430 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:54:30,228 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 33, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(phone=data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:54:30,232 - uvicorn.access - INFO - 127.0.0.1:57430 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:54:33,602 - uvicorn.access - INFO - 127.0.0.1:57434 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 22:55:01,245 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:55:01,354 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:55:01,354 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:55:01,354 - uvicorn.error - INFO - Finished server process [17388]
+2025-05-18 22:55:02,795 - uvicorn.error - INFO - Started server process [14872]
+2025-05-18 22:55:02,795 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:55:02,795 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:55:02,796 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:55:04,541 - uvicorn.access - INFO - 127.0.0.1:57450 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:55:14,433 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 33, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(phone=data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:55:14,438 - uvicorn.access - INFO - 127.0.0.1:57457 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:56:11,589 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:56:11,699 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:56:11,699 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:56:11,699 - uvicorn.error - INFO - Finished server process [14872]
+2025-05-18 22:56:13,083 - uvicorn.error - INFO - Started server process [15764]
+2025-05-18 22:56:13,083 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:56:13,083 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:56:13,083 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:56:14,623 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 34, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(phone=data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:56:14,627 - uvicorn.access - INFO - 127.0.0.1:57490 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:56:43,592 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:56:43,701 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:56:43,701 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:56:43,701 - uvicorn.error - INFO - Finished server process [15764]
+2025-05-18 22:56:47,585 - uvicorn.error - INFO - Started server process [16280]
+2025-05-18 22:56:47,585 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:56:47,585 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:56:47,586 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:56:53,672 - uvicorn.access - INFO - 127.0.0.1:57508 - "GET /docs HTTP/1.1" 200
+2025-05-18 22:56:54,119 - uvicorn.access - INFO - 127.0.0.1:57508 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 22:57:00,567 - uvicorn.access - INFO - 127.0.0.1:57509 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 22:57:33,755 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\routing\data_phone.py", line 33, in check_data
+    return await data_phone_service.add(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 20, in add
+    if await self.get(phone=data_phone.phone):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grigo\Desktop\projects\test-task-ave-tech\src\services\data_phone.py", line 16, in get
+    raise KeyNotFound
+exceptions.KeyNotFound
+2025-05-18 22:57:33,760 - uvicorn.access - INFO - 127.0.0.1:57541 - "POST /write_data HTTP/1.1" 500
+2025-05-18 22:59:36,636 - uvicorn.error - INFO - Shutting down
+2025-05-18 22:59:36,744 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 22:59:36,744 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 22:59:36,744 - uvicorn.error - INFO - Finished server process [16280]
+2025-05-18 22:59:38,279 - uvicorn.error - INFO - Started server process [24456]
+2025-05-18 22:59:38,279 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 22:59:38,279 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 22:59:38,280 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 22:59:41,540 - uvicorn.access - INFO - 127.0.0.1:57617 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:01:44,750 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:01:44,856 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:01:44,856 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:01:44,856 - uvicorn.error - INFO - Finished server process [24456]
+2025-05-18 23:01:46,308 - uvicorn.error - INFO - Started server process [5692]
+2025-05-18 23:01:46,309 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:01:46,309 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:01:46,309 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:01:48,244 - uvicorn.access - INFO - 127.0.0.1:57722 - "POST /write_data HTTP/1.1" 409
+2025-05-18 23:01:59,699 - uvicorn.access - INFO - 127.0.0.1:57730 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:04:02,737 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:04:02,839 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:04:02,839 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:04:02,839 - uvicorn.error - INFO - Finished server process [5692]
+2025-05-18 23:04:04,765 - uvicorn.error - INFO - Started server process [15600]
+2025-05-18 23:04:04,766 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:04:04,766 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:04:04,766 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:04:24,611 - uvicorn.access - INFO - 127.0.0.1:57804 - "GET /docs HTTP/1.1" 200
+2025-05-18 23:04:25,050 - uvicorn.access - INFO - 127.0.0.1:57804 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 23:04:29,045 - uvicorn.access - INFO - 127.0.0.1:57804 - "GET /check_data?phone=%2B79536767165 HTTP/1.1" 404
+2025-05-18 23:04:40,135 - uvicorn.access - INFO - 127.0.0.1:57805 - "POST /write_data HTTP/1.1" 409
+2025-05-18 23:08:06,987 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:08:07,094 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:08:07,094 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:08:07,094 - uvicorn.error - INFO - Finished server process [15600]
+2025-05-18 23:08:08,381 - uvicorn.error - INFO - Started server process [22108]
+2025-05-18 23:08:08,381 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:08:08,381 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:08:08,382 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:08:13,223 - uvicorn.access - INFO - 127.0.0.1:57933 - "GET /docs HTTP/1.1" 200
+2025-05-18 23:08:13,680 - uvicorn.access - INFO - 127.0.0.1:57933 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 23:09:14,421 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:09:14,530 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:09:14,530 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:09:14,531 - uvicorn.error - INFO - Finished server process [22108]
+2025-05-18 23:09:15,847 - uvicorn.error - INFO - Started server process [26248]
+2025-05-18 23:09:15,847 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:09:15,847 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:09:15,847 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:09:18,578 - uvicorn.access - INFO - 127.0.0.1:58098 - "GET /docs HTTP/1.1" 200
+2025-05-18 23:09:18,856 - uvicorn.access - INFO - 127.0.0.1:58098 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 23:10:11,671 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:10:11,780 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:10:11,780 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:10:11,780 - uvicorn.error - INFO - Finished server process [26248]
+2025-05-18 23:10:12,896 - uvicorn.error - INFO - Started server process [15460]
+2025-05-18 23:10:12,896 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:10:12,896 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:10:12,897 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:10:16,826 - uvicorn.access - INFO - 127.0.0.1:58156 - "GET /docs HTTP/1.1" 200
+2025-05-18 23:10:17,105 - uvicorn.access - INFO - 127.0.0.1:58156 - "GET /openapi.json HTTP/1.1" 200
+2025-05-18 23:10:21,162 - uvicorn.access - INFO - 127.0.0.1:58156 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:10:29,605 - uvicorn.access - INFO - 127.0.0.1:58157 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:10:42,573 - uvicorn.access - INFO - 127.0.0.1:58181 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:10:53,606 - uvicorn.access - INFO - 127.0.0.1:58186 - "PUT /update_data HTTP/1.1" 404
+2025-05-18 23:10:58,158 - uvicorn.access - INFO - 127.0.0.1:58186 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:13:12,037 - uvicorn.access - INFO - 127.0.0.1:58303 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:14:13,129 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:14:13,237 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:14:13,237 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:14:13,237 - uvicorn.error - INFO - Finished server process [15460]
+2025-05-18 23:14:16,129 - uvicorn.error - INFO - Started server process [3900]
+2025-05-18 23:14:16,129 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:14:16,129 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:14:16,130 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:14:18,678 - uvicorn.access - INFO - 127.0.0.1:58356 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:15:44,091 - uvicorn.access - INFO - 127.0.0.1:58412 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:17:10,625 - uvicorn.access - INFO - 127.0.0.1:58497 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:17:12,850 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:17:12,960 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:17:12,960 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:17:12,960 - uvicorn.error - INFO - Finished server process [3900]
+2025-05-18 23:17:14,287 - uvicorn.error - INFO - Started server process [21004]
+2025-05-18 23:17:14,287 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:17:14,288 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:17:14,288 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:17:15,899 - uvicorn.access - INFO - 127.0.0.1:58503 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:17:23,968 - uvicorn.access - INFO - 127.0.0.1:58522 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:17:42,249 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:17:42,357 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:17:42,357 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:17:42,357 - uvicorn.error - INFO - Finished server process [21004]
+2025-05-18 23:17:43,668 - uvicorn.error - INFO - Started server process [23988]
+2025-05-18 23:17:43,668 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:17:43,669 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:17:43,669 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:17:45,684 - uvicorn.access - INFO - 127.0.0.1:58542 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:21:28,589 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:21:28,699 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:21:28,699 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:21:28,699 - uvicorn.error - INFO - Finished server process [23988]
+2025-05-18 23:21:30,053 - uvicorn.error - INFO - Started server process [24684]
+2025-05-18 23:21:30,053 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:21:30,054 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:21:30,054 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:21:31,410 - uvicorn.access - INFO - 127.0.0.1:58695 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 200
+2025-05-18 23:21:38,020 - uvicorn.access - INFO - 127.0.0.1:58700 - "POST /write_data HTTP/1.1" 409
+2025-05-18 23:21:46,290 - uvicorn.access - INFO - 127.0.0.1:58704 - "PUT /update_data HTTP/1.1" 200
+2025-05-18 23:21:59,374 - uvicorn.access - INFO - 127.0.0.1:58718 - "POST /write_data HTTP/1.1" 200
+2025-05-18 23:22:46,861 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:22:46,970 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:22:46,970 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:22:46,970 - uvicorn.error - INFO - Finished server process [24684]
