@@ -2,6 +2,19 @@ import pytest
 
 
 @pytest.mark.asyncio
+async def test_write_data(async_client):
+    response = await async_client.post(
+        "/write_data",
+        json={
+            "phone": "+79536767195",
+            "address": "string",
+        },
+    )
+    print(response.json())
+    assert response.status_code == 200
+
+
+@pytest.mark.asyncio
 async def test_check_data(async_client):
 
     response = await async_client.get(
@@ -24,20 +37,7 @@ async def test_check_data(async_client):
 
 
 @pytest.mark.asyncio
-async def test_write_data(async_client):
-    response = await async_client.post(
-        "/write_data",
-        json={
-            "phone": "+79536767195",
-            "address": "string",
-        },
-    )
-    print(response.json())
-    assert response.status_code == 200
-
-
-@pytest.mark.asyncio
-async def test_write_data(async_client):
+async def test_update_data(async_client):
     response = await async_client.put(
         "/update_data",
         json={
