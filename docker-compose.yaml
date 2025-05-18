@@ -1,0 +1,49 @@
+services:
+
+  app:
+    build:
+      context: .
+    depends_on:
+      redis:
+        condition: service_healthy
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+
+  redis:
+    image: redis:latest
+    hostname: redis
+    env_file:
+      - .env
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_USER=${REDIS_USER}
+      - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+    volumes:
+      - redis-data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 10
+    restart: unless-stopped
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  redis-data:
