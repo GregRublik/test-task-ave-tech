@@ -2037,3 +2037,12 @@ exceptions.KeyNotFound
 2025-05-18 23:22:46,970 - uvicorn.error - INFO - Waiting for application shutdown.
 2025-05-18 23:22:46,970 - uvicorn.error - INFO - Application shutdown complete.
 2025-05-18 23:22:46,970 - uvicorn.error - INFO - Finished server process [24684]
+2025-05-18 23:41:56,410 - uvicorn.error - INFO - Started server process [11664]
+2025-05-18 23:41:56,410 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-18 23:41:56,411 - uvicorn.error - INFO - Application startup complete.
+2025-05-18 23:41:56,411 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-18 23:42:02,776 - uvicorn.access - INFO - 127.0.0.1:53762 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 404
+2025-05-18 23:42:43,890 - uvicorn.error - INFO - Shutting down
+2025-05-18 23:42:43,998 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-18 23:42:43,998 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-18 23:42:43,998 - uvicorn.error - INFO - Finished server process [11664]

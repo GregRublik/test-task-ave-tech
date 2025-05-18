@@ -40,6 +40,8 @@ services:
       timeout: 2s
       retries: 10
     restart: unless-stopped
+    networks:
+      - mynetwork
 
 networks:
   mynetwork:

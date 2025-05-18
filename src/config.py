@@ -24,10 +24,6 @@ class RedisSettings(BaseSettings):
     redis_password: str = Field(json_schema_extra={'env': 'REDIS_PASSWORD'})
     redis_user_password: str = Field(json_schema_extra={'env': 'REDIS_USER_PASSWORD'})
 
-    @property
-    def redis_url(self):
-        return f"redis://:{self.redis_password}@{self.redis_host}:{self.redis_port}/0"
-
     model_config = SettingsConfigDict(env_prefix="REDIS_", env_file=".env", extra="ignore")
 
 
