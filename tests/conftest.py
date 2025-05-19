@@ -8,11 +8,11 @@ sys.path.append("src/")
 from app import app
 
 
-@pytest.fixture(scope="session")
-def event_loop():
-    loop = new_event_loop()
-    yield loop
-    loop.close()
+# @pytest.fixture(scope="session")
+# def event_loop():
+#     loop = new_event_loop()
+#     yield loop
+#     loop.close()
 
 
 @pytest.fixture(scope="session")

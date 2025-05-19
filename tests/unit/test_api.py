@@ -1,7 +1,7 @@
 import pytest
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio(loop_scope="session")
 async def test_write_data(async_client):
     response = await async_client.post(
         "/write_data",
@@ -14,7 +14,7 @@ async def test_write_data(async_client):
     assert response.status_code in (200, 409)
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio(loop_scope="session")
 async def test_check_data(async_client):
 
     response = await async_client.get(
@@ -36,7 +36,7 @@ async def test_check_data(async_client):
     assert response.status_code == 422
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio(loop_scope="session")
 async def test_update_data(async_client):
     response = await async_client.put(
         "/update_data",
