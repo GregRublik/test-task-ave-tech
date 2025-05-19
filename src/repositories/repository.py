@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from redis.asyncio.client import Redis
 
 from schemas.data_phone import CreateDataPhone
+from config import logger
 
 
 class AbstractRepository(ABC):
@@ -32,10 +33,12 @@ class RedisRepository:
         self.client = client
 
     async def add_one(self, key: str, data: str):
-        return await self.client.set(key, data)
+        res = await self.client.set(key, data)
+        return res
 
     async def get_one(self, key: str):
-        return await self.client.get(key)
+        res = await self.client.get(key)
+        return res
 
 
 class PhoneDataRepository(RedisRepository):
@@ -46,6 +49,6 @@ class PhoneDataRepository(RedisRepository):
         :param data: возможно стоило просто сохранять key: phone, value: address, но я сделал так
         :return:
         """
-
-        return await self.client.set(key, str(data.model_dump()))
+        res = await self.client.set(key, str(data.model_dump()))
+        return res
 

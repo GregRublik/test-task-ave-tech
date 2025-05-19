@@ -17,7 +17,8 @@ async def check_data(
     data_phone_service: Annotated[DataPhoneService, Depends(get_phone_data_service)]
 ):
     try:
-        return await data_phone_service.get(data_phone)
+        data = await data_phone_service.get(data_phone)
+        return {"detail": {"success": True, 'data_phone': data}}
     except KeyNotFound as e:
         raise HTTPException(
             status_code=e.status_code,
@@ -30,7 +31,8 @@ async def check_data(
     data_phone_service: Annotated[DataPhoneService, Depends(get_phone_data_service)]
 ):
     try:
-        return await data_phone_service.add(data_phone)
+        await data_phone_service.add(data_phone)
+        return {"detail": {"success": True, 'write_data_phone': data_phone.model_dump()}}
     except KeyAlreadyExists as e:
         raise HTTPException(
             status_code=e.status_code,
@@ -43,11 +45,15 @@ async def update_data(
     data_phone: CreateDataPhone,
     data_phone_service: Annotated[DataPhoneService, Depends(get_phone_data_service)]
 ):
+    """
+    решил что лучше добавить отдельный метод для изменения данных по номеру
+    """
+
     try:
 
-        return await data_phone_service.update(data_phone)
+        await data_phone_service.update(data_phone)
+        return {"detail": {"success": True, 'updated_data_phone': data_phone.model_dump()}}
     except KeyNotFound as e:
-        print("key not found")
         raise HTTPException(
             status_code=e.status_code,
             detail={"success": False, "message": "this number not found"},

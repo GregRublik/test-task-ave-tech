@@ -2046,3 +2046,107 @@ exceptions.KeyNotFound
 2025-05-18 23:42:43,998 - uvicorn.error - INFO - Waiting for application shutdown.
 2025-05-18 23:42:43,998 - uvicorn.error - INFO - Application shutdown complete.
 2025-05-18 23:42:43,998 - uvicorn.error - INFO - Finished server process [11664]
+2025-05-19 09:38:48,028 - uvicorn.error - INFO - Started server process [6856]
+2025-05-19 09:38:48,029 - uvicorn.error - INFO - Waiting for application startup.
+2025-05-19 09:38:48,029 - uvicorn.error - INFO - Application startup complete.
+2025-05-19 09:38:48,030 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-05-19 09:39:08,080 - uvicorn.access - INFO - 127.0.0.1:65165 - "GET /check_data?phone=%2B79536767195 HTTP/1.1" 500
+2025-05-19 09:39:08,081 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\connection.py", line 302, in connect_check_health
+    await self.retry.call_with_retry(
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\retry.py", line 71, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\connection.py", line 759, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\AppData\Local\Programs\Python\Python312\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1083, in create_connection
+    infos = await self._ensure_resolved(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1466, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 905, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 978, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\src\routing\data_phone.py", line 20, in check_data
+    data = await data_phone_service.get(data_phone)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\src\services\data_phone.py", line 14, in get
+    if result := await self.repository.get_one(key=f"phone_{data_phone.phone}"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\src\repositories\repository.py", line 38, in get_one
+    return await self.client.get(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\client.py", line 673, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\connection.py", line 1145, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\connection.py", line 1178, in ensure_connection
+    await connection.connect()
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\connection.py", line 296, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\Админ\Desktop\test-task-ave-tech\venv\Lib\site-packages\redis\asyncio\connection.py", line 310, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2025-05-19 09:39:24,485 - uvicorn.error - INFO - Shutting down
+2025-05-19 09:39:24,602 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-05-19 09:39:24,602 - uvicorn.error - INFO - Application shutdown complete.
+2025-05-19 09:39:24,602 - uvicorn.error - INFO - Finished server process [6856]

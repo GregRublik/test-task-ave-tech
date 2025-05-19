@@ -2,6 +2,8 @@ from repositories.repository import AbstractRepository, RedisRepository
 from typing import Union
 from schemas.data_phone import CreateDataPhone, CheckDataPhone
 from exceptions import KeyAlreadyExists, KeyNotFound
+from config import logger
+import json
 
 
 class DataPhoneService:
@@ -20,6 +22,7 @@ class DataPhoneService:
         try:
             if await self.repository.get_one(key=f"phone_{data_phone.phone}"):
                 raise KeyAlreadyExists
+            await self.repository.add_one(key=f"phone_{data_phone.phone}", data=data_phone)
 
         except KeyNotFound:
             if await self.repository.add_one(key=f"phone_{data_phone.phone}", data=data_phone):
