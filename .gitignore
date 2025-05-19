@@ -1,6 +1,7 @@
-*__pycache__*
 venv
 .idea
-poetry.lock
+*__pycache__*
 src/logs/app.log
 src/logs/debug.log
+app.log
+debug.log
